@@ -1,0 +1,40 @@
+@use '../variables';
+
+.user-table {
+  width: 80vw;
+  justify-self: center;
+  table {
+    width: 80vw;
+    border-collapse: collapse;
+    table-layout: fixed;
+    place-self: center;
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: variables.$spacing-unit;
+      text-align: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    th {
+      background: variables.$color-bg-secondary;
+    }
+
+    button {
+      margin-right: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: variables.$color-secondary;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}

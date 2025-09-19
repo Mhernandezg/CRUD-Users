@@ -13,12 +13,3 @@ body {
   color: variables.$color-text;
   line-height: variables.$line-height-base;
 }
-a {
-  color: variables.$color-primary;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-    color: variables.$color-secondary;
-  }
-}

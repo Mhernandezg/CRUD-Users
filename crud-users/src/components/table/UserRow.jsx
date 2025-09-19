@@ -1,0 +1,26 @@
+import React from 'react';
+import UserImage from './UserImage';
+
+const fallBackImage = 'https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785406-stock-illustration-hand-drawn-modern-man-avatar.jpg';
+const UserRow = ({ user, onView, onEdit, onDelete }) => {
+  return (
+    <tr>
+      <td>{user.id}</td>
+      <td>{`${user.title} ${user.firstName} ${user.lastName}`}</td>
+      <td>
+        <UserImage
+          image={user.picture}
+          altImage={`${user.firstName} ${user.lastName}`}
+          backUpImage={fallBackImage}
+        />
+      </td>
+      <td>
+        <button onClick={() => onView(user)}>Ver</button>
+        <button onClick={() => onEdit(user)}>Editar</button>
+        <button onClick={() => onDelete(user.id)}>Eliminar</button>
+      </td>
+    </tr>
+  );
+};
+
+export default React.memo(UserRow);

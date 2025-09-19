@@ -11,6 +11,7 @@ const SearchInput = ({ onSearch }) => {
 
   return (
     <input
+      id="search"
       type="text"
       placeholder="Buscar por Id del usuario..."
       value={query}

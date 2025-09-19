@@ -1,0 +1,35 @@
+@use '../variables';
+
+.modal {
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  &-content {
+    background: variables.$color-bg;
+    padding: variables.$spacing-unit * 3;
+    border-radius: variables.$spacing-unit / 2;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    gap: variables.$spacing-unit;
+    display: flex;
+  }
+  &-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    font-size: variables.$font-size-base * 1.5;
+    cursor: pointer;
+  }
+}
