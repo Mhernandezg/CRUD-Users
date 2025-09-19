@@ -13,15 +13,28 @@
     justify-content: center;
     z-index: 1000;
   }
+  &-title{
+    margin: 0 0 variables.$spacing-unit 0;
+    color: variables.$color-primary;
+    place-self: center;
+  }
   &-content {
     background: variables.$color-bg;
     padding: variables.$spacing-unit * 3;
     border-radius: calc(variables.$spacing-unit / 2);
-    text-align: center;
-    align-items: center;
     position: relative;
-    gap: variables.$spacing-unit;
+  }
+  &-userDetails {
     display: flex;
+    align-items: center;
+    margin-bottom: variables.$spacing-unit;
+    padding-bottom: variables.$spacing-unit;
+    border-bottom: 2px solid variables.$color-terciary;
+  }
+  &-UserIdentification {
+    margin-right: variables.$spacing-unit;
+    padding-right: variables.$spacing-unit;
+    border-right: 2px solid variables.$color-terciary;
   }
   &-close {
     position: absolute;

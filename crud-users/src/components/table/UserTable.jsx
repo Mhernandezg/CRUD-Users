@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import useStoreData from '../../store/storeData';
 import SearchInput from './SearchInput';
 import UserRow from './UserRow';
-import UserModal from './UserModal';
+import UserModalInformation from './UserModalInformation';
 
 const UserTable = () => {
   const { users, loading, error } = useStoreData();
@@ -79,7 +79,7 @@ const UserTable = () => {
               ? emptyBody
               : bodyTable}
       </table>
-      {selectedUserId && <UserModal userId={selectedUserId} onClose={handleCloseModal} />}
+      {selectedUserId && <UserModalInformation userId={selectedUserId} onClose={handleCloseModal} />}
     </div>
   );
 };
