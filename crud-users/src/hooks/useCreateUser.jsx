@@ -14,16 +14,18 @@ const useCreateUser = () => {
       });
       addUser(data);
       setError(null);
+      return { success: true, message: 'Usuario creado con éxito', data };
       return data;
     } catch (err) {
       setError(err.message);
+      return { success: false, message: `Error al crear usuario: ${err.message}` };
       return null;
     } finally {
       setLoading(false);
     }
   };
 
-  return { createUser, setLoading, setError };
+  return { createUser };
 };
 
 export default useCreateUser;

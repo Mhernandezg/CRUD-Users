@@ -1,10 +1,17 @@
 @use '../variables';
 
 .search {
-  margin-bottom: variables.$spacing-unit;
-  padding: variables.$spacing-unit;
-  width: 50%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: variables.$font-size-base;
+  &-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: variables.$spacing-unit;
+    gap: variables.$spacing-unit;
+  }
+  &-input {
+    padding: calc(variables.$spacing-unit / 4);
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: variables.$font-size-base;
+  }
 }

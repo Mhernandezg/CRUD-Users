@@ -1,15 +1,18 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import userSchema from '../../utils/validations'; 
+import userSchema from '../../utils/validations';
 import useCreateUser from '../../hooks/useCreateUser';
+import useStoreData from '../../store/storeData';
 
 const CreateUserModal = ({ onClose, onUserCreated }) => {
-  const { createUser, loading, error } = useCreateUser();
+  const { loading, error } = useStoreData();
+  const { createUser } = useCreateUser();
 
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(userSchema),
     defaultValues: {
@@ -20,13 +23,13 @@ const CreateUserModal = ({ onClose, onUserCreated }) => {
       gender: '',
       email: '',
       dateOfBirth: '',
-      phone: ''
-    }
+      phone: '',
+    },
   });
 
   const onSubmit = async (data) => {
     const newUser = await createUser(data);
-    if (newUser) {
+    if (newUser.success) {
       onUserCreated(newUser);
       onClose();
     }

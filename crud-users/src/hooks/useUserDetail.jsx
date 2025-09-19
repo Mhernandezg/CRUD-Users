@@ -3,9 +3,7 @@ import { apiClient } from '../utils/apiClient';
 import useStoreData from '../store/storeData';
 
 const useUserDetail = (userId) => {
-  const { userDetails, setUserDetail } = useStoreData();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const { userDetails, setUserDetail, setLoading, setError } = useStoreData();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -37,7 +35,7 @@ const useUserDetail = (userId) => {
     fetchUser();
   }, [userId, userDetails, setUserDetail]);
 
-  return { user, loading, error };
+  return { user };
 };
 
 export default useUserDetail;

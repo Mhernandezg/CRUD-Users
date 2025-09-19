@@ -81,6 +81,9 @@
     border-radius: calc(variables.$spacing-unit / 2);
     position: relative;
   }
+  &-userInfo{
+    text-align: justify;
+  }
   &-userDetails {
     display: flex;
     align-items: center;
@@ -100,6 +103,7 @@
     right: 10px;
     border: none;
     background: transparent;
+    color: variables.$color-text;
     font-size: variables.$font-size-base * 1.5;
     cursor: pointer;
   }

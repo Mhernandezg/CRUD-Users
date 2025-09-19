@@ -10,17 +10,17 @@ const SearchInput = ({ onSearch, onCreate }) => {
     onSearch(value);
   };
   return (
-    <>
+    <div className='search-container'>
       <input
         id="search"
         type="text"
         placeholder="Buscar por Id del usuario..."
         value={query}
         onChange={handleChange}
-        className="search"
+        className="search-input"
       />
       <button onClick={onCreate}>+ Crear Usuario</button>
-    </>
+    </div>
   );
 };
 

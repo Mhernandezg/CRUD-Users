@@ -2,9 +2,12 @@ import UserImage from '../table/UserImage';
 import useUserDetail from '../../hooks/useUserDetail';
 import PropTypes from 'prop-types';
 import dateFormat from '../../utils/dateFormat';
+import { translateTitle, translateGender } from '../../utils/translateTitle';
+import useStoreData from '../../store/storeData';
 
 const UserModalInformation = ({ userId, onClose }) => {
-  const { user, loading, error } = useUserDetail(userId);
+  const { user } = useUserDetail(userId);
+  const { loading, error } = useStoreData();
 
   if (!userId) return null;
 
@@ -23,7 +26,7 @@ const UserModalInformation = ({ userId, onClose }) => {
             <h2 className="modal-title">Detalles del Usuario</h2>
             <div className="modal-userDetails">
               <div className="modal-UserIdentification">
-                <h3 className="modal-userName">{`${user?.title} ${user?.firstName} ${user?.lastName}`}</h3>
+                <h3 className="modal-userName">{`${translateTitle(user?.title)} ${user?.firstName} ${user?.lastName}`}</h3>
                 <span>ID:</span> {user?.id}
               </div>
               <UserImage
@@ -34,7 +37,7 @@ const UserModalInformation = ({ userId, onClose }) => {
             </div>
             <div className="modal-userInfo">
               <p>
-                <strong>Género:</strong> {user?.gender}
+                <strong>Género:</strong> {translateGender(user?.gender)}
               </p>
               <p>
                 <strong>Correo electrónico:</strong> {user?.email}

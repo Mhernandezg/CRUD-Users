@@ -1,6 +1,7 @@
 import React from 'react';
 import UserImage from './UserImage';
 import PropTypes from 'prop-types';
+import { translateTitle, translateGender } from '../../utils/translateTitle';
 
 const fallBackImage =
   'https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785406-stock-illustration-hand-drawn-modern-man-avatar.jpg';
@@ -8,7 +9,7 @@ const UserRow = ({ user, onView, onEdit, onDelete }) => {
   return (
     <tr>
       <td>{user?.id}</td>
-      <td>{`${user?.title||''} ${user?.firstName} ${user?.lastName}`}</td>
+      <td>{`${translateTitle(user?.title||'')} ${user?.firstName} ${user?.lastName}`}</td>
       <td>
         <UserImage
           image={user?.picture}
