@@ -1,8 +1,8 @@
-@use "../variables";
-.header{
-    background: variables.$color-primary;
-    color: variables.$color-text-secondary;
-    padding: variables.$spacing-unit;
-    margin-bottom: variables.$spacing-unit;
-    text-align: center;
+@use '../variables';
+.header {
+  background: variables.$color-primary;
+  color: variables.$color-text-secondary;
+  padding: variables.$spacing-unit;
+  margin-bottom: variables.$spacing-unit;
+  text-align: center;
 }

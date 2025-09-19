@@ -1,6 +1,6 @@
-import React from 'react';
 import UserImage from './UserImage';
 import useUserDetail from '../../hooks/useUserDetail';
+import PropTypes from 'prop-types';
 
 const UserModal = ({ userId, onClose }) => {
   const { user, loading, error } = useUserDetail(userId);
@@ -34,6 +34,11 @@ const UserModal = ({ userId, onClose }) => {
       </div>
     </div>
   );
+};
+
+UserModal.propTypes = {
+  userId: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default UserModal;

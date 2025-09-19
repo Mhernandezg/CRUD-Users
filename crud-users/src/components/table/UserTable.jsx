@@ -79,9 +79,7 @@ const UserTable = () => {
               ? emptyBody
               : bodyTable}
       </table>
-      {selectedUserId && (
-        <UserModal userId={selectedUserId} onClose={handleCloseModal} />
-      )}
+      {selectedUserId && <UserModal userId={selectedUserId} onClose={handleCloseModal} />}
     </div>
   );
 };

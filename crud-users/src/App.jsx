@@ -1,6 +1,5 @@
 import './styles/main.scss';
 import useFetchUsers from './hooks/useFetchUsers';
-import useStoreData from './store/storeData';
 import Header from './components/Header';
 import UserTable from './components/table/UserTable';
 

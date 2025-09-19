@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const SearchInput = ({ onSearch }) => {
   const [query, setQuery] = useState('');
@@ -19,6 +20,10 @@ const SearchInput = ({ onSearch }) => {
       className="search"
     />
   );
+};
+
+SearchInput.propTypes = {
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default SearchInput;
