@@ -4,23 +4,23 @@ import { apiClient } from '../utils/apiClient';
 
 
 const useFetchUsers = () => {
-  const { setUsers, setLoading, setError } = useStoreData();
+  const { setUsers, setLoadingTable, setErrorTable } = useStoreData();
 
   useEffect(() => {
     const fetchUsers = async () => {
-      setLoading(true);
+      setLoadingTable(true);
       try {
         const data = await apiClient('/user');
         setUsers(data.data);
       } catch (err) {
-        setError(err.message);
+        setErrorTable(err.message);
       } finally {
-        setLoading(false);
+        setLoadingTable(false);
       }
     };
 
     fetchUsers();
-  }, [setUsers, setLoading, setError]);
+  }, [setUsers, setLoadingTable, setErrorTable]);
 };
 
 export default useFetchUsers;

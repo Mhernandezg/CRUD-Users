@@ -4,12 +4,16 @@ const useStoreData = create((set) => ({
   users: [],
   userDetails: {},
   loading: false,
+  loadingTable: false,
+  errorTable: null,
   error: null,
   selectedUser: null,
 
   setUsers: (users) => set({ users }),
   setLoading: (loading) => set({ loading }),
   setError: (error) => set({ error }),
+  setLoadingTable: (loadingTable) => set({ loadingTable }),
+  setErrorTable: (errorTable) => set({ errorTable }),
 
   addUser: (user) =>
     set((state) => ({

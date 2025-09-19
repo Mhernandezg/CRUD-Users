@@ -7,12 +7,13 @@ import UserModalInformation from './modal/UserModalInformation';
 import CreateUserModal from './modal/CreateUserModal';
 import ConfirmDeleteModal from './modal/DeleteConfirmationModal';
 import ConfirmModal from './modal/ConfirmModal';
+import EditUserModal from './modal/EditUserModal';
 
 const UserTable = () => {
-  const { users, loading, error } = useStoreData();
-  console.log('Usuarios desde el store:', users);
+  const { users, loadingTable, errorTable } = useStoreData();
   const [search, setSearch] = useState('');
   const [selectedUserId, setSelectedUserId] = useState(null);
+  const [editedUserId, setEditedUserId] = useState(null);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const deleteUser = useDeleteUser();
   const [userToDelete, setUserToDelete] = useState(null);
@@ -24,6 +25,10 @@ const UserTable = () => {
 
   const handleView = (user) => {
     setSelectedUserId(user.id);
+  };
+
+  const handleEditUser = (user) => {
+    setEditedUserId(user.id);
   };
 
   const handleCloseModal = () => {
@@ -45,7 +50,7 @@ const UserTable = () => {
           key={user.id}
           user={user}
           onView={handleView}
-          onEdit={(u) => console.log('Editar', u)}
+          onEdit={handleEditUser}
           onDelete={() => setUserToDelete(user)}
         />
       ))}
@@ -71,7 +76,7 @@ const UserTable = () => {
   const errorBody = (
     <tbody>
       <tr>
-        <td colSpan="4">Error: {error}</td>
+        <td colSpan="4">Error: {errorTable}</td>
       </tr>
     </tbody>
   );
@@ -88,9 +93,9 @@ const UserTable = () => {
             <th>Acciones</th>
           </tr>
         </thead>
-        {loading
+        {loadingTable
           ? loadingBody
-          : error
+          : errorTable
             ? errorBody
             : filteredUsers.length === 0
               ? emptyBody
@@ -123,6 +128,15 @@ const UserTable = () => {
               type: newUser.success ? 'success' : 'error',
               message: newUser.message,
             });
+          }}
+        />
+      )}
+      {editedUserId && (
+        <EditUserModal
+          userId={editedUserId}
+          onClose={() => setEditedUserId(null)}
+          onUserUpdated={(updatedUser) => {
+            setFeedback({ show: true, type: 'success', message: 'Usuario actualizado con éxito' });
           }}
         />
       )}
