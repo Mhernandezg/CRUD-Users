@@ -1,0 +1,24 @@
+@use 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: variables.$font-stack;
+  font-size: variables.$font-size-base;
+  background-color: variables.$color-bg;
+  color: variables.$color-text;
+  line-height: variables.$line-height-base;
+}
+a {
+  color: variables.$color-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: variables.$color-secondary;
+  }
+}

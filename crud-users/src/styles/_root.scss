@@ -1,0 +1,7 @@
+@use 'variables';
+:root {
+  font-family: variables.$font-stack;
+  background-color: variables.$color-bg;
+  line-height: variables.$line-height-base;
+  font-weight: 400;
+}
