@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const SearchInput = ({ onSearch }) => {
+const SearchInput = ({ onSearch, onCreate }) => {
   const [query, setQuery] = useState('');
 
   const handleChange = (e) => {
@@ -9,16 +9,18 @@ const SearchInput = ({ onSearch }) => {
     setQuery(value);
     onSearch(value);
   };
-
   return (
-    <input
-      id="search"
-      type="text"
-      placeholder="Buscar por Id del usuario..."
-      value={query}
-      onChange={handleChange}
-      className="search"
-    />
+    <>
+      <input
+        id="search"
+        type="text"
+        placeholder="Buscar por Id del usuario..."
+        value={query}
+        onChange={handleChange}
+        className="search"
+      />
+      <button onClick={onCreate}>+ Crear Usuario</button>
+    </>
   );
 };
 

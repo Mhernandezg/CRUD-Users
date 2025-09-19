@@ -1,11 +1,10 @@
-import UserImage from './UserImage';
+import UserImage from '../table/UserImage';
 import useUserDetail from '../../hooks/useUserDetail';
 import PropTypes from 'prop-types';
 import dateFormat from '../../utils/dateFormat';
 
 const UserModalInformation = ({ userId, onClose }) => {
   const { user, loading, error } = useUserDetail(userId);
-  console.log(user);
 
   if (!userId) return null;
 
@@ -24,27 +23,27 @@ const UserModalInformation = ({ userId, onClose }) => {
             <h2 className="modal-title">Detalles del Usuario</h2>
             <div className="modal-userDetails">
               <div className="modal-UserIdentification">
-                <h3 className="modal-userName">{`${user.title} ${user.firstName} ${user.lastName}`}</h3>
-                <span>ID:</span> {user.id}
+                <h3 className="modal-userName">{`${user?.title} ${user?.firstName} ${user?.lastName}`}</h3>
+                <span>ID:</span> {user?.id}
               </div>
               <UserImage
-                image={user.picture}
-                altImage={`${user.firstName} ${user.lastName}`}
+                image={user?.picture}
+                altImage={`${user?.firstName} ${user?.lastName}`}
                 backUpImage="https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785406-stock-illustration-hand-drawn-modern-man-avatar.jpg"
               />
             </div>
             <div className="modal-userInfo">
               <p>
-                <strong>Género:</strong> {user.gender}
+                <strong>Género:</strong> {user?.gender}
               </p>
               <p>
-                <strong>Correo electrónico:</strong> {user.email}
+                <strong>Correo electrónico:</strong> {user?.email}
               </p>
               <p>
-                <strong>Fecha de nacimiento:</strong> {dateFormat(user.dateOfBirth)}
+                <strong>Fecha de nacimiento:</strong> {user?.dateOfBirth && dateFormat(user.dateOfBirth)}
               </p>
               <p>
-                <strong>Teléfono:</strong> {user.phone}
+                <strong>Teléfono:</strong> {user?.phone}
               </p>
             </div>
           </>

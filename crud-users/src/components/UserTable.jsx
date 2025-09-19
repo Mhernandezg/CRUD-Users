@@ -1,13 +1,18 @@
 import { useState, useMemo } from 'react';
-import useStoreData from '../../store/storeData';
-import SearchInput from './SearchInput';
-import UserRow from './UserRow';
-import UserModalInformation from './UserModalInformation';
+import useStoreData from '../store/storeData';
+import useDeleteUser from '../hooks/useDeleteUser';
+import SearchInput from './table/SearchInput';
+import UserRow from './table/UserRow';
+import UserModalInformation from './modal/UserModalInformation';
+import CreateUserModal from './modal/CreateUserModal';
 
 const UserTable = () => {
   const { users, loading, error } = useStoreData();
+  console.log('Usuarios desde el store:', users);
   const [search, setSearch] = useState('');
   const [selectedUserId, setSelectedUserId] = useState(null);
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const deleteUser = useDeleteUser();
 
   const filteredUsers = useMemo(() => {
     return users.filter((user) => `${user.id}`.includes(search));
@@ -20,6 +25,9 @@ const UserTable = () => {
   const handleCloseModal = () => {
     setSelectedUserId(null);
   };
+  const handleDelete = (id) => {
+    deleteUser(id);
+  };
 
   const bodyTable = (
     <tbody>
@@ -29,7 +37,7 @@ const UserTable = () => {
           user={user}
           onView={handleView}
           onEdit={(u) => console.log('Editar', u)}
-          onDelete={(id) => console.log('Eliminar', id)}
+          onDelete={handleDelete}
         />
       ))}
     </tbody>
@@ -61,7 +69,7 @@ const UserTable = () => {
 
   return (
     <div className="user-table">
-      <SearchInput onSearch={setSearch} />
+      <SearchInput onSearch={setSearch} onCreate={() => setShowCreateModal(true)} />
       <table>
         <thead>
           <tr>
@@ -79,7 +87,17 @@ const UserTable = () => {
               ? emptyBody
               : bodyTable}
       </table>
-      {selectedUserId && <UserModalInformation userId={selectedUserId} onClose={handleCloseModal} />}
+      {selectedUserId && (
+        <UserModalInformation userId={selectedUserId} onClose={handleCloseModal} />
+      )}
+      {showCreateModal && (
+        <CreateUserModal
+          onClose={() => setShowCreateModal(false)}
+          onUserCreated={(newUser) => {
+            console.log('Usuario creado:', newUser);
+          }}
+        />
+      )}
     </div>
   );
 };

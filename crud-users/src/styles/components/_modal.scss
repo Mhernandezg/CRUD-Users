@@ -12,8 +12,65 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: variables.$spacing-unit;
+      background: variables.$color-bg;
+      padding: variables.$spacing-unit * 3;
+      border-radius: calc(variables.$spacing-unit / 2);
+      input {
+        padding: 0.6rem 0.8rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: variables.$font-size-base;
+        transition: border-color 0.2s;
+
+        &:focus {
+          outline: none;
+          border-color: variables.$color-secondary;
+          box-shadow: 0 0 0 2px rgba(variables.$color-secondary, 0.3);
+        }
+      }
+
+      .error {
+        color: red;
+        font-size: 0.85rem;
+      }
+
+      .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 1rem;
+
+        button {
+          padding: 0.5rem 1rem;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: variables.$font-size-base;
+          font-weight: 500;
+
+          &.submit {
+            background: variables.$color-secondary;
+            color: variables.$color-text-secondary;
+          }
+
+          &.cancel {
+            background: #ddd;
+            color: variables.$color-text;
+          }
+
+          &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
   }
-  &-title{
+  &-title {
     margin: 0 0 variables.$spacing-unit 0;
     color: variables.$color-primary;
     place-self: center;
@@ -27,6 +84,7 @@
   &-userDetails {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: variables.$spacing-unit;
     padding-bottom: variables.$spacing-unit;
     border-bottom: 2px solid variables.$color-terciary;

@@ -7,19 +7,19 @@ const fallBackImage =
 const UserRow = ({ user, onView, onEdit, onDelete }) => {
   return (
     <tr>
-      <td>{user.id}</td>
-      <td>{`${user.title} ${user.firstName} ${user.lastName}`}</td>
+      <td>{user?.id}</td>
+      <td>{`${user?.title||''} ${user?.firstName} ${user?.lastName}`}</td>
       <td>
         <UserImage
-          image={user.picture}
-          altImage={`${user.firstName} ${user.lastName}`}
+          image={user?.picture}
+          altImage={`${user?.firstName} ${user?.lastName}`}
           backUpImage={fallBackImage}
         />
       </td>
       <td>
         <button onClick={() => onView(user)}>Ver</button>
         <button onClick={() => onEdit(user)}>Editar</button>
-        <button onClick={() => onDelete(user.id)}>Eliminar</button>
+        <button onClick={() => onDelete(user?.id)}>Eliminar</button>
       </td>
     </tr>
   );

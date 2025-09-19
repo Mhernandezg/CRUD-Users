@@ -5,7 +5,7 @@ const UserImage = ({ image, altImage, backUpImage }) => {
   const [imgSrc, setImgSrc] = useState(image);
   return (
     <img
-      src={imgSrc}
+      src={imgSrc||backUpImage}
       alt={altImage}
       onError={() => setImgSrc(backUpImage)}
       className="user-avatar"
