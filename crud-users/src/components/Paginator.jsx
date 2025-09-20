@@ -4,6 +4,8 @@ const Paginator = () => {
   const { total, limit, page, setPage } = useStoreData();
   const totalPages = Math.ceil(total / limit);
 
+  if (totalPages <= 1) return null;
+
   return (
     <div className="paginator">
       {Array.from({ length: totalPages }, (_, i) => (

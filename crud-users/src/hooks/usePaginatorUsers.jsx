@@ -11,9 +11,9 @@ const usePaginatorUsers = (page = 0, limit = 5) => {
       try {
         const data = await apiClient(`/user?page=${page}&limit=${limit}`);
         setUsers(data.data);
-        setTotal(data.total);   
-        setPage(data.page);     
-        setLimit(data.limit);
+        setTotal(data.total);
+        if (data.page !== page) setPage(data.page);
+        if (data.limit !== limit) setLimit(data.limit);
       } catch (err) {
         setErrorTable(err.message);
       } finally {
