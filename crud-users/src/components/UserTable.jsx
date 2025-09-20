@@ -10,7 +10,7 @@ import ConfirmModal from './modal/ConfirmModal';
 import EditUserModal from './modal/EditUserModal';
 
 const UserTable = () => {
-  const { users, loadingTable, errorTable, page, limit } = useStoreData();
+  const { users, loadingTable, errorTable } = useStoreData();
   const [search, setSearch] = useState('');
   const [selectedUserId, setSelectedUserId] = useState(null);
   const [editedUserId, setEditedUserId] = useState(null);
@@ -135,7 +135,7 @@ const UserTable = () => {
         <EditUserModal
           userId={editedUserId}
           onClose={() => setEditedUserId(null)}
-          onUserUpdated={(updatedUser) => {
+          onUserUpdated={() => {
             setFeedback({ show: true, type: 'success', message: 'Usuario actualizado con éxito' });
           }}
         />

@@ -10,7 +10,7 @@ const SearchInput = ({ onSearch, onCreate }) => {
     onSearch(value);
   };
   return (
-    <div className='search-container'>
+    <div className="search-container">
       <input
         id="search"
         type="text"
@@ -26,6 +26,7 @@ const SearchInput = ({ onSearch, onCreate }) => {
 
 SearchInput.propTypes = {
   onSearch: PropTypes.func.isRequired,
+  onCreate: PropTypes.func.isRequired,
 };
 
 export default SearchInput;

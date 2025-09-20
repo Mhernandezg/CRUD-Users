@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -159,6 +160,12 @@ const EditUserModal = ({ userId, onClose, onUserUpdated }) => {
       )}
     </>
   );
+};
+
+EditUserModal.propTypes = {
+  userId: PropTypes.number.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onUserUpdated: PropTypes.func.isRequired,
 };
 
 export default EditUserModal;

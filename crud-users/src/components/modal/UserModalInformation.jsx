@@ -43,7 +43,8 @@ const UserModalInformation = ({ userId, onClose }) => {
                 <strong>Correo electrónico:</strong> {user?.email}
               </p>
               <p>
-                <strong>Fecha de nacimiento:</strong> {user?.dateOfBirth && dateFormat(user.dateOfBirth)}
+                <strong>Fecha de nacimiento:</strong>{' '}
+                {user?.dateOfBirth && dateFormat(user.dateOfBirth)}
               </p>
               <p>
                 <strong>Teléfono:</strong> {user?.phone}

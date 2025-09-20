@@ -86,11 +86,11 @@
       flex-direction: column;
       gap: variables.$spacing-unit;
     }
-    &.error button{
-      background: variables.$color-error-bg; 
+    &.error button {
+      background: variables.$color-error-bg;
     }
   }
-  &-userInfo{
+  &-userInfo {
     text-align: justify;
   }
   &-userDetails {

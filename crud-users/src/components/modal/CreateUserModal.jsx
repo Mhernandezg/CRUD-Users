@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import userSchema from '../../utils/validations';
@@ -113,6 +113,11 @@ const CreateUserModal = ({ onClose, onUserCreated }) => {
       </form>
     </div>
   );
+};
+
+CreateUserModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  onUserCreated: PropTypes.func.isRequired,
 };
 
 export default CreateUserModal;

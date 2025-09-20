@@ -18,5 +18,4 @@ export const translateTitle = (value) => {
 
 export const translateGender = (value) => {
   return genereMap[value] || value;
-}
-
+};
