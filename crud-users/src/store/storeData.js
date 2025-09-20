@@ -8,6 +8,13 @@ const useStoreData = create((set) => ({
   errorTable: null,
   error: null,
   selectedUser: null,
+  total: 0,
+  page: 0,
+  limit: 5,
+
+  setTotal: (total) => set({ total }),
+  setPage: (page) => set({ page }),
+  setLimit: (limit) => set({ limit }),
 
   setUsers: (users) => set({ users }),
   setLoading: (loading) => set({ loading }),

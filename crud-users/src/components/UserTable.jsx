@@ -10,7 +10,7 @@ import ConfirmModal from './modal/ConfirmModal';
 import EditUserModal from './modal/EditUserModal';
 
 const UserTable = () => {
-  const { users, loadingTable, errorTable } = useStoreData();
+  const { users, loadingTable, errorTable, page, limit } = useStoreData();
   const [search, setSearch] = useState('');
   const [selectedUserId, setSelectedUserId] = useState(null);
   const [editedUserId, setEditedUserId] = useState(null);
