@@ -12,7 +12,7 @@ const useCreateUser = () => {
         method: 'POST',
         body: JSON.stringify(newUser)
       });
-      addUser(data);
+      //addUser(data);
       setError(null);
       return { success: true, message: 'Usuario creado con éxito', data };
     } catch (err) {
