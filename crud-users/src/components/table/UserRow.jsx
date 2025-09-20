@@ -3,8 +3,7 @@ import UserImage from './UserImage';
 import PropTypes from 'prop-types';
 import { translateTitle } from '../../utils/translateTitle';
 
-const fallBackImage =
-  'https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785406-stock-illustration-hand-drawn-modern-man-avatar.jpg';
+const fallBackImage = import.meta.env.VITE_FALLBACK_IMAGE;
 const UserRow = ({ user, onView, onEdit, onDelete }) => {
   return (
     <tr>

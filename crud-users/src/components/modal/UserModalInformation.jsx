@@ -5,6 +5,8 @@ import dateFormat from '../../utils/dateFormat';
 import { translateTitle, translateGender } from '../../utils/translateTitle';
 import useStoreData from '../../store/storeData';
 
+const fallBackImage = import.meta.env.VITE_FALLBACK_IMAGE;
+
 const UserModalInformation = ({ userId, onClose }) => {
   const { user } = useUserDetail(userId);
   const { loading, error } = useStoreData();
@@ -32,7 +34,7 @@ const UserModalInformation = ({ userId, onClose }) => {
               <UserImage
                 image={user?.picture}
                 altImage={`${user?.firstName} ${user?.lastName}`}
-                backUpImage="https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785406-stock-illustration-hand-drawn-modern-man-avatar.jpg"
+                backUpImage={fallBackImage}
               />
             </div>
             <div className="modal-userInfo">
