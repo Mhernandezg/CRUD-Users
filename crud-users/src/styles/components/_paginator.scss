@@ -5,7 +5,7 @@
   justify-content: center;
   margin: variables.$spacing-unit 0;
   button {
-    margin: 0 variables.$spacing-unit/4;
+    margin: 0 calc(variables.$spacing-unit/4);
   }
   .active {
     background-color: variables.$color-primary;
