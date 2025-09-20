@@ -11,7 +11,7 @@
     padding: calc(variables.$spacing-unit / 4);
     width: 50%;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: calc(variables.$border-radius / 2);
     font-size: variables.$font-size-base;
   }
 }

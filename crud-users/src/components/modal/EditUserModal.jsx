@@ -67,7 +67,7 @@ const EditUserModal = ({ userId, onClose, onUserUpdated }) => {
     <>
       <div className="modal-overlay">
         <form onSubmit={handleSubmit(onSubmit)} className="user-form">
-          <h2>Editar Usuario</h2>
+          <h2 className="modal-title">Editar Usuario</h2>
 
           <p>
             <strong>ID:</strong> {user?.id}

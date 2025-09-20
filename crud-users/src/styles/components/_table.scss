@@ -5,6 +5,7 @@
     width: 80vw;
     justify-self: center;
     text-align: center;
+
     table {
       width: 80vw;
       border-collapse: collapse;
@@ -14,18 +15,62 @@
 
       th,
       td {
-        border: 1px solid #ddd;
+        border: 1px solid variables.$color-border;
         padding: variables.$spacing-unit;
-        text-align: left;
+        text-align: center;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        text-align: center;
       }
 
       th {
         background: variables.$color-bg-secondary;
         color: variables.$color-text-secondary;
+      }
+    }
+
+    @media (max-width: 980px) {
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+        width: 100%;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: variables.$spacing-unit * 2;
+        border: 1px solid variables.$color-border;
+        border-radius: variables.$border-radius;
+        background: #fff;
+        padding: variables.$spacing-unit * 2;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      td {
+        text-align: left;
+        padding: variables.$spacing-unit;
+        border: none;
+        border-bottom: 1px solid variables.$color-border;
+        white-space: normal;
+
+        &[data-label="Acciones"] {
+          white-space: break-spaces;
+        }
+
+        &::before {
+          content: attr(data-label);
+          font-weight: bold;
+          display: block;
+          margin-bottom: calc(variables.$spacing-unit / 4);
+          color: variables.$color-bg-secondary;
+        }
       }
     }
   }

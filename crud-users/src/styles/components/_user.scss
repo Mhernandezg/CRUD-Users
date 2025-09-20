@@ -8,4 +8,104 @@
     object-fit: cover;
     border: 2px solid variables.$color-border;
   }
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: variables.$spacing-unit;
+    background: variables.$color-bg;
+    padding: variables.$spacing-unit * 2;
+    border-radius: variables.$border-radius;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: variables.$font-stack;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    .modal-title {
+      margin: 0 0 1rem;
+      text-align: center;
+      font-size: calc(variables.$font-size-base * 1.5);
+      font-weight: 600;
+      color: variables.$color-primary;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: variables.$color-text;
+
+      input,
+      select {
+        margin-top: 0.25rem;
+        padding: 0.6rem 0.8rem;
+        border: 1px solid variables.$color-border;
+        border-radius: calc(variables.$border-radius / 2);
+        font-size: variables.$font-size-base;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+
+        &:focus {
+          outline: none;
+          border-color: variables.$color-secondary;
+          box-shadow: 0 0 0 2px rgba(98, 190, 158, 0.3);
+        }
+
+        &.input-disabled {
+          background: variables.$color-disabled-bg;
+          color: variables.$color-text-disabled;
+          cursor: not-allowed;
+        }
+      }
+
+      .error {
+        margin-top: 0.25rem;
+        color: variables.$color-error;
+        font-size: 0.8rem;
+      }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      button {
+        padding: 0.6rem 1.2rem;
+        border: none;
+        border-radius: calc(variables.$border-radius / 2);
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+
+        &:first-of-type {
+          background: variables.$color-secondary;
+          color: variables.$color-text-secondary;
+
+          &:hover {
+            opacity: 0.9;
+          }
+
+          &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+        }
+
+        &:last-of-type {
+          background: variables.$color-disabled-bg;
+          color: variables.$color-text;
+
+          &:hover {
+            background: variables.$color-bg;
+          }
+        }
+      }
+    }
+  }
 }
